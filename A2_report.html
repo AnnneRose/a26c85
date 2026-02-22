@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 2</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Annabel Adeyeri</strong> — <em>anade22@mit.edu</em>
+		</p>
+	</header>
+	<main>
+		<section>
+			<h2>Subtheme: Exploring corporate owners and evictions</h2>
+
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li>How has corporate ownership rates changed between 2004 and 2024? How does location impact corporate ownership rates?</li>
+				<li>Are higher corporate ownership rates associated with different racial groups? </li>
+				<li>How do owner occupancy rates change as corporate ownership changes?</li>
+			</ol>
+			
+			<h3>Motivation</h3>
+			<p>The motivation for most of my questions comes from "When Private Equity Becomes Your Landlord". The first question was very basically motivated. I have been hearing more about PE taking over buildings and I am interested in if the numbers back up the amount I hear about it. In "When Private Equity Becomes Your Landlord", it talks about how corporations are pushed to raise rents. I technically live in corporate housing (MIT is a corporate owner), so this also might be a slight motivation. As income and race may be slightly correlated, it makes sense that certain demographics might be pushed out of corporate housing. For question 3, in the ProPublica article, Cooper's anecdote comes to mind: trash collecting in hallway and security slacking might be a sign of lower rates of occupancy and thus less oversight.</p>
+			<h3>Initial Analysis</h3>
+			<p>Initially, in Census_and_Corp_Ownership_and_Occupancy_Over_Time, I thought there would be more variation in the race and age demographics throughout the years. However, at a cursory glance, it seems that all of the age and race demographics stay consistent (not changing at all). This is very surprising as I would expect that the number of people would change as the amount of houses/buildings change or as people move in and out. I am a bit confused on how people are being counted. There are multiple spreadsheets with this same data. In zip_code_neighborhood, leading zeros are not presented. No missing data. Race and age demographics are given as a count. Occupancy and ownership rates are given a float. I decided to remove all data that looks at facility type and race and age together. Not all neighborhoods present in either table are called the same thing.</p>
+			<p>In A2_EDA_CSV, it seems like non-investors sell to investors more than investors sell to investors. Flip horizon, flip_diff, month_horizon, price_diff_pch, style, prsldate, and restype_R1F have missing values. I removed these values as I do not think they are relevant to the questions I am asking. There are a lot of different columns (not all relevant), but data is presented as dates and integers. Some relevant values are investor_type_purchase, inv_to_inv, and investor_type_sale. </p>
+		</section>
+
+		<section>
+			<h2>Discoveries & Insights</h2>
+			<figure>
+				<img src="avg_corp_by_year.png" alt="" />
+				<figcaption>
+				This visual explores the average corporate ownership rate by year in Boston. Corporations own over 25% of the real estate in Boston as of 2024. Corporate ownership rates seem to be increasing exponentially from 2004-2024. There was a steady climb throughout that period.
+				</figcaption>
+			</figure>
+			<figure>
+				<img src="corp_year_by_neighborhood.png" alt="" />
+				<figcaption>
+				This visual breaks down the average corporate ownership rate by neighborhood in Boston. The general trend from Fig 1 is present. Certain places always tend to have higher corporate ownership rate than average. Other places had lower corporate ownership rates than average. Generally, corporate ownership rates seems to increase at the same rate no matter the neighborhood.  However, some communities such as South Boston Waterfront had more variable corporate ownership rates: rates would increase rapidly one year and decrease another.
+				</figcaption>
+			</figure>
+			<figure>
+				<img src="corp_occ_compare.png" alt="" />
+				<figcaption>
+				This graphic compares corporate owner rates and owner occupany rates. There seems to be a weak correlation between these 2 rates. Generally, a higher corporate owner rate corresponds to a lower owner occupany rate, and a lower corporate owner rate corresponds to a higher owner occupancy rate. This is not always true as there are multiple corporate owner rates that correspond to an owner occupancy rate.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="corp_own_race_count.png" alt="" />
+				<figcaption>
+				Overall, the racial demographics seems to stay quiet even no matter the corperate ownership rate. The general shape of the amount of people in each demographic category seems similar. The max for each demographic category is in the same spot. Major dips also happen in the same location. There is some minor variation as the amount of AAPI people seems a bit higher than expected in higher corporate owner rates. We can also see that when corporate owner rates are really high the amound of people in those locations seems to be lower overall.
+				</figcaption>
+			</figure>
+			
+		</section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>Overall, it seems that corpate ownership rates are skyrocketing. Certain neighborhoods have different rates but all of them are climbing. Generally, corporate ownership rates are associated with lower owner occupancy. Racial demographics are not very affected by corporate ownership rates very much. No matter what race you are higher corporate ownership means there are less people (and thus people like you) over there.</p>
+		</section>
+	</main>
+</body>
+</html>
